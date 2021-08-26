@@ -15,8 +15,20 @@ Ideally I would like to make the Menu key a modifier key in the console and
 make it toggle the layered keys, but I don't know how to do that. Help would
 be appreciated.
 
+### Installation instructions
+
+The easiest way is to gzip and copy the layout to the keymaps folder:
+
+```
+# gzip us-ck61.map && cp -v us-ck61.map.gz /usr/share/kbd/keymaps/i386/qwerty/
+```
+
+And use your distro's documentation to set this as the default linux console
+keymap.
+
 
 ## Xkb keymap
+
 This xkb keymap maps shift+Esc to dead_tilde and Menu+Esc produces dead_grave.
 I chose to use the Menu key and avoid shift+alt+Esc as that is hard to type.
 This map also adds the Menu key as mod3 in X, essentially turning it into a
@@ -24,6 +36,16 @@ working Fn key, shifting the keyboard to the second function of the keys.
 To keep things simple I decided to leave out the cursor keys on the right,
 mapping only the wasd keys and the print screen and pause break keys are also
 left out.
+
+### Installation instructions
+
+You can just copy this to your preferred location in your home directory and
+load it in .xinitrc using xkbcomp:
+
+```
+$ xkbcomp <wherever>/us_intl_ck61.xkb $DISPLAY
+```
+
 
 ### Disclaimer
 
