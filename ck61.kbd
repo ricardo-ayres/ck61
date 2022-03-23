@@ -22,18 +22,9 @@
 )
 
 (deflayer default
+  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  @sl  _    _    _    _    _    _    _    _    _    _    @sl
-  _    _    _              _                   _    _    _
-)
-
-;; remap shifted layer S-esc and S-bspc to del
-(deflayer shifted
-  ~    !    @    #    $    %    ^    &    *    (    )    \_    =   del
-  tab  Q    W    E    R    T    Y    U    I    O    P    {    }    |
-  caps A    S    D    F    G    H    J    K    L    :    "    ret
-  _    Z    X    C    V    B    N    M    <    >    ?    _
+  esc  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _                   _    _    _
 )
