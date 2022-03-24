@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Motospeed CK61"
+  },
+  [
+    {
+      "f": 2
+    },
+    "~\n`",
+    "!\n1\nF1",
+    "@\n2\nF2",
+    "#\n3\nF3",
+    "$\n4\nF4",
+    "%\n5\nF5",
+    "^\n6\nF6",
+    "&\n7\nF7",
+    "*\n8\nF8",
+    "(\n9\nF9",
+    ")\n0\nF10",
+    "_\n-\nF11",
+    "+\n=\nF12",
+    {
+      "w": 2
+    },
+    "\nBspc\nDel"
+  ],
+  [
+    {
+      "w": 1.5
+    },
+    "\nTab",
+    "Q\nq",
+    "W\nw\n&uarr;",
+    "E\ne",
+    "R\nr",
+    "T\nt",
+    "Y\ny\n7",
+    "U\nu\n8",
+    "I\ni\n9",
+    "O\no",
+    "P\np",
+    "{\n[",
+    "}\n]",
+    {
+      "w": 1.5
+    },
+    "|\n\\"
+  ],
+  [
+    {
+      "w": 1.75
+    },
+    "\nEsc/Ctrl\nFN Reset",
+    "A\na\n&larr;",
+    "S\ns\n&darr;",
+    "D\nd\n&rarr;",
+    "F\nf",
+    "G\ng",
+    "H\nh\n4",
+    "J\nj\n5",
+    "K\nk\n6",
+    "L\nl\nHome",
+    ":\n;\nPgUp",
+    "\"\n'\nPgDn",
+    {
+      "w": 2.25
+    },
+    "\nEnter"
+  ],
+  [
+    {
+      "w": 2.25
+    },
+    "\nShift\n=",
+    "Z\nz\n/",
+    "X\nx\n*",
+    "C\nc\n-",
+    "V\nv\n+",
+    "B\nb\n.",
+    "N\nn\n1",
+    "M\nm\n2",
+    "<\n,\n3",
+    ">\n.\nEnd",
+    "?\n/\n&uarr;",
+    {
+      "w": 2.75
+    },
+    "\nShift"
+  ],
+  [
+    {
+      "w": 1.25
+    },
+    "\nCtrl",
+    {
+      "w": 1.25
+    },
+    "\nWin",
+    {
+      "w": 1.25
+    },
+    "\nAlt",
+    {
+      "w": 6.25
+    },
+    "\nSpace\n0",
+    {
+      "w": 1.25
+    },
+    "\nAltGr\n&larr;",
+    {
+      "w": 1.25
+    },
+    "\nMenu\n&darr;",
+    {
+      "w": 1.25
+    },
+    "\nFN1\n&rarr;",
+    {
+      "w": 1.25
+    },
+    "Useless\nFN key"
+  ]
+]
