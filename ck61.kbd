@@ -11,7 +11,12 @@
 )
 
   -------------------------------------------------------------------------- |#
-(defalias sl layer-toggle shifted)
+
+(defcfg
+  input (device-file "/dev/input/by-id/usb-BY_Tech_Usb_Gaming_Keyboard-event-kbd")
+  output (uinput-sink "CK61 Kmonad")
+  fallthrough true
+)
 
 (defsrc
   esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
@@ -21,10 +26,30 @@
   lctl lmet lalt           spc                 ralt menu rctl
 )
 
-(deflayer default
+(defalias
+  ;; Make control and esc a single key
+  csc (tap-next-release esc lctl)
+
+  ;; Reset the default layout
+  rst (layer-switch m0)
+
+  ;; Toggle layer on hold, switch layer on tap
+  fn1 (tap-next-release (layer-switch m1) (layer-toggle m1))
+)
+
+;; default layer
+(deflayer m0
   grv  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  esc  _    _    _    _    _    _    _    _    _    _    _    _
+  @csc _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _                   _    _    _
+  _    _    _              _                   ralt _    @fn1
+)
+
+(deflayer m1
+  _    f1   f2   f3  f4    f5   f6   f7   f8   f9   f10  f11  f12  del
+  _    _    up   _    _    _    _    _    _    _    _    _    _    _
+  @rst lft  down rght _    _    _    _    _    home pgup pgdn _
+  _    _    _    _    _    _    _    _    _    end  up   _
+  _    _    _              _                   lft  down rght
 )
