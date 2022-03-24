@@ -3,7 +3,14 @@
 The Motospeed CK61 keyboard misses the grave/tilde key and requires toggling
 a layer to access the secondary function of the keys. This makes the keyboard
 cumbersome to code on and to use daily. This repo includes a keymap for the
-linux console and a xkb layout for X11 amending those problems.
+linux console, xkb and [Kmonad](https://github.com/kmonad/kmonad)
+**(recommended)** layouts amending those problems.
+
+## Kmonad keymap
+
+This is the best way to remap your keyboard, just write a simple service for
+Kmonad loading the correct keymap and it should work everywhere. Just
+remember to reset all your keymaps to us or us_intl.
 
 
 ## Linux console Keymap
