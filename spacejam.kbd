@@ -1,0 +1,60 @@
+#| --------------------------------------------------------------------------
+
+                          KMonad: CK61 Spacejam <40% layout
+
+(deflayer name
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  _    _    _    _    _    _    _    _    _    _    _    XX   XX   XX
+  _    _    _    _    _    _    _    _    _    _    _    XX   XX
+  _    _    _    _    _    _    _    _    _    _    _    XX
+  _    _    _              _                   _    _    XX
+)
+
+  -------------------------------------------------------------------------- |#
+
+(defcfg
+  input (device-file "/dev/input/by-id/usb-BY_Tech_Usb_Gaming_Keyboard-event-kbd")
+  output (uinput-sink "CK61 Kmonad")
+  fallthrough true
+)
+
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc                 ralt menu rctl
+)
+
+(defalias
+  ;; Home row mods
+  ma (tap-next-release a lmet)
+  ms (tap-next-release s lalt)
+  md (tap-next-release d lctl)
+  mf (tap-next-release f lsft)
+
+  mh (tap-next-release h lmet)
+  mj (tap-next-release j lsft)
+  mk (tap-next-release k lctl)
+  ml (tap-next-release l lalt)
+
+  ;; spacejam ;)
+  sjm (tap-next-release spc (layer-toggle spacejam))
+)
+
+;; default layer
+(deflayer default
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  grv  q    w    e    r    t    y    u    i    o    p    XX   XX   XX
+  esc  @ma  @ms  @md  @mf  g    @mh  @mj  @mk  @ml  ret  XX   XX
+  tab  z    x    c    v    b    n    m    _    _    _    XX
+  _    _    _              @sjm                _    _    XX
+)
+
+(deflayer spacejam
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  _    1    2    3    4    5    6    7    8    9    0    XX   XX   XX
+  _    _    _    _    _    _    lft  down up   rght bspc XX   XX
+  _    _    _    _    _    _    _    _    _    _    _    XX
+  _    _    _              _                   _    _    XX
+)
