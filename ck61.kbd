@@ -28,20 +28,31 @@
 
 (defalias
   ;; Make control and esc a single key
-  csc (tap-next-release esc lctl)
+  csc (tap-hold-next-release 400 esc lctl)
 
   ;; Reset the default layout
   rst (layer-switch m0)
 
   ;; Toggle layer on hold, switch layer on tap
-  fn1 (tap-next-release (layer-switch m1) (layer-toggle m1))
+  fn1 (tap-hold-next-release 400 (layer-switch m1) (layer-toggle m1))
+  
+  ;; Home row mods
+  ms (tap-hold-next-release 1000 s lalt)
+  md (tap-hold-next-release 1000 d lctl)
+  mf (tap-hold-next-release 1000 f lsft)
+  mg (tap-hold-next-release 1000 g lmet)
+
+  mh (tap-hold-next-release 1000 h lmet)
+  mj (tap-hold-next-release 1000 j lsft)
+  mk (tap-hold-next-release 1000 k lctl)
+  ml (tap-hold-next-release 1000 l lalt)
 )
 
 ;; default layer
 (deflayer m0
   grv  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  @csc _    _    _    _    _    _    _    _    _    _    _    _
+  @csc _    @ms  @md  @md  @mf  @mg  @mh  @mj  @mk  @ml  _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _                   ralt _    @fn1
 )
