@@ -1,12 +1,12 @@
 #| --------------------------------------------------------------------------
 
                           KMonad custom layout
-
 (deflayer name
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _                   _    _    _
+  _    _    _              _              _    _    _    _
 )
 
   -------------------------------------------------------------------------- |#
@@ -18,8 +18,9 @@
 )
 
 (defsrc
-  tab  q    w    e    r    t    y    u    i    o    p    [
-  caps a    s    d    f    g    h    j    k    l    ;    '
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc                 ralt cmp  rctl
 )
@@ -32,18 +33,24 @@
   sla (around-next lalt)
   sra (around-next ralt)
 
-  ;; layer-toggles
+  ;; layer manipulation
+  rst (layer-switch default)
+
   lt1 (layer-toggle nav)
   lt2 (layer-toggle num)
   lt3 (layer-toggle sym)
   lt4 (layer-toggle fnx)
 
-  ;; dual-function fn keys
+  ls1 (layer-switch nav)
+  ls2 (layer-switch num)
+  ls3 (layer-switch sym)
+  ls4 (layer-switch fnx)
+
+  ;; function keys
   fn1 (tap-next esc @lt1)
   fn2 (tap-next tab @lt2)
-  fn3 (tap-next @ss @lt3)
-  fn4 (tap-next @sc @lt4)
 
+  ;; convenience shortcuts
   cz C-z
   cx C-x
   cc C-c
@@ -54,36 +61,41 @@
  
 ;; default layer
 (deflayer default
-  @fn2 _    _    _    _    _    _    _    _    _    _    bspc
-  @fn1 _    _    _    _    _    _    _    _    _    _    ret
-  @fn3 _    _    _    _    _    _    _    _    _    _    _
-  @fn4 _    _              spc                 _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  @fn2 _    _    _    _    _    _    _    _    _    _    _    _    _
+  @fn1 _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _                   _    _    _
 )
  
 (deflayer nav
-  _    _    @cw  _    _    _    home pgdn pgup end  _    del
-  _    @sra @sla @sc  @ss  @sm  lft  down up   rght _    ins
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  @lt4 _    @cw  _    _    _    home pgdn pgup end  _    _    _    _
+  _    _    _    _    _    _    lft  down up   rght _    _    _
   _    @cz  @cx  @cc  @cv  _    _    _    _    _    _    _
-  _    _    caps           _                   _    _    _
+  _    _    _              _                   _    _    _
 )
  
 (deflayer num
-  _    /    ?    +    -    _    \\   7    8    9    '    _
-  _    _    _    =    *    _    -    4    5    6    .    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    /    ?    +    -    _    \\   7    8    9    '    _    _    _
+  @lt3 _    _    =    *    _    -    4    5    6    .    _    _
   _    _    _    _    _    _    0    1    2    3    _    _
   _    _    _              _                   _    _    _
 )
 
 (deflayer sym
-  _    \(   \)   _    _    _    |    &    *    \(   "    _
-  _    [    ]    _    _    _    \_   $    %    ^    ~    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    \(   \)   _    _    _    |    &    *    \(   "    _    _    _
+  _    [    ]    _    _    _    \_   $    %    ^    ~    _    _
   _    {    }    _    _    _    \)   !    @    #    _    _
   _    _    _              _                   _    _    _
 )
 
 (deflayer fnx
-  _    _    _    _    _    _    _    F9   F10  F11  F12  _
-  _    _    _    _    _    _    _    F5   F6   F7   F8   _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    F9   F10  F11  F12  _    _    _
+  _    _    _    _    _    _    _    F5   F6   F7   F8   _    _
   _    _    _    _    _    _    _    F1   F2   F3   F4   _
   _    _    _              _                   _    _    _
 )
