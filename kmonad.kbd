@@ -64,7 +64,7 @@
   _    _    _    _    _    _    home pgdn pgup end  _    del
   _    @ora @ola @oc  @os  @om  lft  down up   rght _    ins
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _                   _    _    _ )
+  _    _    caps           _                   _    _    _ )
  
 (deflayer num
   _    /    ?    +    -    _    \\   7    8    9    '    _
