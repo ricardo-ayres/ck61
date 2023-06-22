@@ -44,11 +44,11 @@
   fn3 (tap-next @ss @lt3)
   fn4 (tap-next @sc @lt4)
 
-  ora (tap-next-release @sra ralt)
-  ola (tap-next-release @sla lalt)
-  oc (tap-next-release @sc ctl)
-  os (tap-next-release @ss sft)
-  om (tap-next-release @sm met)
+  cz C-z
+  cx C-x
+  cc C-c
+  cv C-v
+  cw C-w
 )
  
  
@@ -57,18 +57,19 @@
   @fn2 _    _    _    _    _    _    _    _    _    _    bspc
   @fn1 _    _    _    _    _    _    _    _    _    _    ret
   @fn3 _    _    _    _    _    _    _    _    _    _    _
-  @fn4 @om  @ola           spc                 @ora _    _
+  @fn4 _    _              spc                 _    _    _
 )
  
 (deflayer nav
-  _    _    _    _    _    _    home pgdn pgup end  _    del
-  _    @ora @ola @oc  @os  @om  lft  down up   rght _    ins
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    caps           _                   _    _    _ )
+  _    _    @cw  _    _    _    home pgdn pgup end  _    del
+  _    @sra @sla @sc  @ss  @sm  lft  down up   rght _    ins
+  _    @cz  @cx  @cc  @cv  _    _    _    _    _    _    _
+  _    _    caps           _                   _    _    _
+)
  
 (deflayer num
   _    /    ?    +    -    _    \\   7    8    9    '    _
-  _    [    ]    =    *    _    -    4    5    6    .    _
+  _    _    _    =    *    _    -    4    5    6    .    _
   _    _    _    _    _    _    0    1    2    3    _    _
   _    _    _              _                   _    _    _
 )
