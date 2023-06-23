@@ -6,7 +6,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _    _
+  _    _    _              _                   _    _    _
 )
 
   -------------------------------------------------------------------------- |#
@@ -28,10 +28,17 @@
 (defalias
   ;; sticky keys
   ss (around-next sft)
-  sm (around-next met)
   sc (around-next ctl)
+  sm (around-next met)
   sla (around-next lalt)
   sra (around-next ralt)
+
+  ;; multi-mods
+  ms (tap-next @ss sft)
+  mc (tap-next @sc ctl)
+  mm (tap-next @sm met)
+  mla (tap-next @sla lalt)
+  mra (tap-next @sra ralt)
 
   ;; layer manipulation
   rst (layer-switch default)
@@ -40,15 +47,24 @@
   lt2 (layer-toggle num)
   lt3 (layer-toggle sym)
   lt4 (layer-toggle fnx)
+  lt5 (layer-toggle sjm)
 
   ls1 (layer-switch nav)
   ls2 (layer-switch num)
   ls3 (layer-switch sym)
   ls4 (layer-switch fnx)
+  ls5 (layer-switch sjm)
+
+  ln1 (layer-next nav)
+  ln2 (layer-next num)
+  ln3 (layer-next sym)
+  ln4 (layer-next fnx)
+  ln5 (layer-next sjm)
 
   ;; function keys
   fn1 (tap-next esc @lt1)
-  fn2 (tap-next tab @lt2)
+  fn2 (tap-next @ln2 @lt2)
+  fn5 (tap-next spc @lt5)
 
   ;; convenience shortcuts
   cz C-z
@@ -58,19 +74,18 @@
   cw C-w
 )
  
- 
 ;; default layer
 (deflayer default
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
   @fn2 _    _    _    _    _    _    _    _    _    _    _    _    _
   @fn1 _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _                   _    _    _
+  @ms  _    _    _    _    _    _    _    _    _    _    _
+  @mc  @mm  @mla           @fn5                @mra _    _
 )
  
 (deflayer nav
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  @lt4 _    @cw  _    _    _    home pgdn pgup end  _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    del
+  _    _    @cw  _    _    _    home pgdn pgup end  _    _    _    ins
   _    _    _    _    _    _    lft  down up   rght _    _    _
   _    @cz  @cx  @cc  @cv  _    _    _    _    _    _    _
   _    _    _              _                   _    _    _
@@ -78,15 +93,15 @@
  
 (deflayer num
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    /    ?    +    -    _    \\   7    8    9    '    _    _    _
-  @lt3 _    _    =    *    _    -    4    5    6    .    _    _
-  _    _    _    _    _    _    0    1    2    3    _    _
+  tab  /    ?    !    ~    _    \\   7    8    9    '    _    _    _
+  @lt3 _    _    _    _    _    -    4    5    6    .    _    _
+  @lt4 _    _    _    _    _    0    1    2    3    _    _
   _    _    _              _                   _    _    _
 )
 
 (deflayer sym
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    \(   \)   _    _    _    |    &    *    \(   "    _    _    _
+  _    _    _    _    _    _    |    &    *    \(   "    _    _    _
   _    [    ]    _    _    _    \_   $    %    ^    ~    _    _
   _    {    }    _    _    _    \)   !    @    #    _    _
   _    _    _              _                   _    _    _
@@ -98,4 +113,12 @@
   _    _    _    _    _    _    _    F5   F6   F7   F8   _    _
   _    _    _    _    _    _    _    F1   F2   F3   F4   _
   _    _    _              _                   _    _    _
+)
+
+(deflayer sjm
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    /    ?    !    ~    _    _    _    _    _    _    _    _    _
+  _    @sra @sla @sc  @ss  @sm  _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              spc                 _    _    _
 )
