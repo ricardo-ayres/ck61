@@ -98,7 +98,7 @@
  
 (deflayer nav
   _    _    _    _    _    _    _    _    _    _    _    _    _    del
-  _    @msq @cw  @cr  @ct  _    home pgdn pgup end  _    _    _    ins
+  _    @msq @cw  _    @cr  @ct  home pgdn pgup end  _    _    _    ins
   _    @ca  @tp  @tn  @cf  @tag lft  down up   rght _    _    _
   _    @cz  @cx  @cc  @cv  _    _    _    _    _    _    _
   _    _    _              _                   _    _    _
