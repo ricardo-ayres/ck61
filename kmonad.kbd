@@ -64,14 +64,27 @@
   ;; function keys
   fn1 (tap-next esc @lt1)
   fn2 (tap-next @ln2 @lt2)
-  fn5 (tap-next spc @lt5)
+  fn5 (tap-next-release spc @lt5)
 
   ;; convenience shortcuts
+  ;; general useful
   cz C-z
   cx C-x
   cc C-c
   cv C-v
+
+  ;; web useful
   cw C-w
+  cr C-r
+  ct C-t
+  ca C-a
+  tp C-S-tab
+  tn C-tab
+  cf C-f
+
+  ;; dwm
+  msq M-S-q
+  tag (around-next (around met sft))
 )
  
 ;; default layer
@@ -85,25 +98,25 @@
  
 (deflayer nav
   _    _    _    _    _    _    _    _    _    _    _    _    _    del
-  _    _    @cw  _    _    _    home pgdn pgup end  _    _    _    ins
-  _    _    _    _    _    _    lft  down up   rght _    _    _
+  _    @msq @cw  @cr  @ct  _    home pgdn pgup end  _    _    _    ins
+  _    @ca  @tp  @tn  @cf  @tag lft  down up   rght _    _    _
   _    @cz  @cx  @cc  @cv  _    _    _    _    _    _    _
   _    _    _              _                   _    _    _
 )
  
 (deflayer num
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  tab  /    ?    !    ~    _    \\   7    8    9    '    _    _    _
-  @lt3 _    _    _    _    _    -    4    5    6    .    _    _
+  tab  /    *    +    ~    _    \\   7    8    9    '    _    _    _
+  @lt3 _    _    =    _    _    -    4    5    6    .    _    _
   @lt4 _    _    _    _    _    0    1    2    3    _    _
   _    _    _              _                   _    _    _
 )
 
 (deflayer sym
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    |    &    *    \(   "    _    _    _
-  _    [    ]    _    _    _    \_   $    %    ^    ~    _    _
-  _    {    }    _    _    _    \)   !    @    #    _    _
+  _    _    \(   \)   _    _    |    &    *    \(   "    _    _    _
+  _    _    [    ]    _    _    \_   $    %    ^    ~    _    _
+  _    _    {    }    _    _    \)   !    @    #    _    _
   _    _    _              _                   _    _    _
 )
 
@@ -117,8 +130,8 @@
 
 (deflayer sjm
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    /    ?    !    ~    _    _    _    _    _    _    _    _    _
-  _    @sra @sla @sc  @ss  @sm  _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
+  @lt3 /    ?    !    ~    _    \\   &    *    _    _    _    _    _
+  _    @mra @mla @mc  @ms  @mm  -    ret  bspc tab  :    _    _
+  _    @cz  @cx  @cc  @cv  _    _    _    @    #    _    _
   _    _    _              spc                 _    _    _
 )
