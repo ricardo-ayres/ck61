@@ -64,7 +64,8 @@
   ;; function keys
   fn1 (tap-next esc @lt1)
   fn2 (tap-next @ln2 @lt2)
-  fn5 (tap-next-release spc @lt5)
+  fn3 (tap-next-release spc @lt5)
+  fn4 (tap-next-release spc @lt3)
 
   ;; convenience shortcuts
   ;; general useful
@@ -72,19 +73,33 @@
   cx C-x
   cc C-c
   cv C-v
+  pw C-lft
+  nw C-rght
 
   ;; web useful
   cw C-w
+  ce C-e
   cr C-r
   ct C-t
   ca C-a
   tp C-S-tab
   tn C-tab
   cf C-f
+  ad A-d
 
-  ;; dwm
-  msq M-S-q
-  tag (around-next (around met sft))
+  ;; dwm useful
+  st M-n
+  dm M-d
+  sp M-s
+  nx M-j
+  pv M-k
+  kil M-S-q
+
+  ;; combined modkeys
+  cpa (around-next (around ctl alt))
+  cps (around-next (around ctl sft))
+  aps (around-next (around alt sft))
+  mps (around-next (around met sft))
 )
  
 ;; default layer
@@ -92,24 +107,24 @@
   grv  _    _    _    _    _    _    _    _    _    _    _    _    _
   @fn2 _    _    _    _    _    _    _    _    _    _    _    _    _
   @fn1 _    _    _    _    _    _    _    _    _    _    _    _
-  @ms  _    _    _    _    _    _    _    _    _    _    _
-  @mc  @mm  @mla           @fn5                @mra _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              @fn3                _   _    _
 )
  
 (deflayer nav
   _    _    _    _    _    _    _    _    _    _    _    _    _    del
-  _    @msq @cw  _    @cr  @ct  home pgdn pgup end  _    _    _    ins
-  _    @ca  @tp  @tn  @cf  @tag lft  down up   rght _    _    _
-  _    @cz  @cx  @cc  @cv  _    _    _    _    _    _    _
+  _    @kil @cw  @ce  @cr  @ct  home pgdn pgup end  @ad  _    _    ins
+  _    @ca  @tp  @tn  @cf  @pw  lft  down up   rght @nw  _    _
+  _    @cz  @cx  @cc  @cv  _    @st  @dm  @sp  @nx  @pv  _
   _    _    _              _                   _    _    _
 )
  
 (deflayer num
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  tab  /    *    +    ~    _    \\   7    8    9    '    _    _    _
-  @lt3 _    _    =    _    _    -    4    5    6    .    _    _
-  @lt4 _    _    _    _    _    0    1    2    3    _    _
-  _    _    _              _                   _    _    _
+  tab  /    *    +    -    %    \\   7    8    9    '    _    _    _
+  @lt3 <    >    =    @mm  @mps -    4    5    6    .    _    _
+  @lt4 _    @aps @cpa @cps _    0    1    2    3    ,    _
+  _    _    _              @fn4                _    _    _
 )
 
 (deflayer sym
@@ -130,8 +145,8 @@
 
 (deflayer sjm
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  @lt3 /    ?    !    ~    _    \\   &    *    _    _    _    _    _
+  @lt3 /    ?    !    ~    _    \\   &    *    \(   "    _    _    _
   _    @mra @mla @mc  @ms  @mm  -    ret  bspc tab  :    _    _
-  _    @cz  @cx  @cc  @cv  _    _    _    @    #    _    _
+  _    @cz  @cx  @cc  @cv  _    \)   _    @    #    _    _
   _    _    _              spc                 _    _    _
 )
