@@ -109,12 +109,10 @@
   kil M-S-q
 
   ;; combined modkeys
-  #| not sure how to do this in kanata
-  cpa (one-shot 1000 ctl lalt)
-  cps (one-shot 1000 ctl sft)
-  aps (one-shot 1000 lalt sft)
-  mps (one-shot 1000 met sft)
-  |#
+  cpa (multi @sc @sla)
+  cps (multi @sc @ss)
+  aps (multi @sla @ss)
+  mps (multi @sm @ss)
 )
  
 ;; default layer
@@ -137,8 +135,8 @@
 (deflayer num
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   tab  /    @ast +    min  @pct \    7    8    9    '    _    _    _
-  @lt3 @gtr @sml eql  @mm  _    min  4    5    6    .    _    _
-  @lt4 _    _    _    _    _    0    1    2    3    ,    _
+  @lt3 @gtr @sml eql  @mm  @mps min  4    5    6    .    _    _
+  @lt4 _    @cps @cpa @aps _    0    1    2    3    ,    _
   _    _    _              @fn4                _    _    _
 )
 
