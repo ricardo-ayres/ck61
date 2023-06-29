@@ -1,0 +1,167 @@
+#| --------------------------------------------------------------------------
+
+                          Kanata custom layout
+(deflayer name
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _                   _    _    _
+)
+
+  -------------------------------------------------------------------------- |#
+
+(defcfg)
+
+(defsrc
+  esc  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc                 ralt cmp  rctl
+)
+
+(defalias
+  ;; sticky keys
+  ss (one-shot 1000 sft)
+  sc (one-shot 1000 ctl)
+  sm (one-shot 1000 met)
+  sla (one-shot 1000 lalt)
+  sra (one-shot 1000 ralt)
+
+  ;; multi-mods
+  ms (tap-hold-press 100 200 @ss sft)
+  mc (tap-hold-press 100 200 @sc ctl)
+  mm (tap-hold-press 100 200 @sm met)
+  mla (tap-hold-press 100 200 @sla lalt)
+  mra (tap-hold-press 100 200 @sra ralt)
+
+  ;; layer manipulation
+  rst (layer-switch default)
+
+  lt1 (layer-while-held nav)
+  lt2 (layer-while-held num)
+  lt3 (layer-while-held sym)
+  lt4 (layer-while-held fnx)
+  lt5 (layer-while-held sjm)
+
+  ln1 (one-shot 1000 @lt1)
+  ln2 (one-shot 1000 @lt2)
+  ln3 (one-shot 1000 @lt3)
+  ln4 (one-shot 1000 @lt4)
+  ln5 (one-shot 1000 @lt5)
+
+  ;; function keys
+  fn1 (tap-hold-press 100 200 esc @lt1)
+  fn2 (tap-hold-press 100 200 @ln2 @lt2)
+  fn3 (tap-hold-press 100 200 spc @lt5)
+  fn4 (tap-hold-press 100 200 spc @lt3)
+
+  ;; convenience shortcuts
+  ;; shifted keys
+  exc S-1
+  att S-2
+  hst S-3
+  dol S-4
+  pct S-5
+  not S-6
+  amp S-7
+  ast S-8
+  lbc S-9
+  rbc S-0
+  usc S-min
+  lsq S-{
+  rsq S-}
+  pip S-\
+  til S-grv
+  sml S-.
+  gtr S-,
+  cln S-scln
+  dqt S-'
+  qmk S-/
+  
+
+  ;; general useful
+  cz C-z
+  cx C-x
+  cc C-c
+  cv C-v
+  pw C-lft
+  nw C-rght
+
+  ;; web useful
+  cw C-w
+  ce C-e
+  cr C-r
+  ct C-t
+  ca C-a
+  tp C-S-tab
+  tn C-tab
+  cf C-f
+  ad A-d
+
+  ;; dwm useful
+  st M-n
+  dm M-d
+  sp M-s
+  nx M-j
+  pv M-k
+  kil M-S-q
+
+  ;; combined modkeys
+  #| not sure how to do this in kanata
+  cpa (one-shot 1000 ctl lalt)
+  cps (one-shot 1000 ctl sft)
+  aps (one-shot 1000 lalt sft)
+  mps (one-shot 1000 met sft)
+  |#
+)
+ 
+;; default layer
+(deflayer default
+  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
+  @fn2 _    _    _    _    _    _    _    _    _    _    _    _    _
+  @fn1 _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              @fn3                _   _    _
+)
+ 
+(deflayer nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _    del
+  _    @kil @cw  @ce  @cr  @ct  home pgdn pgup end  @ad  _    _    ins
+  _    @ca  @tp  @tn  @cf  @pw  lft  down up   rght @nw  _    _
+  _    @cz  @cx  @cc  @cv  _    @st  @dm  @sp  @nx  @pv  _
+  _    _    _              _                   _    _    _
+)
+ 
+(deflayer num
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  tab  /    @ast +    min  @pct \    7    8    9    '    _    _    _
+  @lt3 @gtr @sml eql  @mm  _    min  4    5    6    .    _    _
+  @lt4 _    _    _    _    _    0    1    2    3    ,    _
+  _    _    _              @fn4                _    _    _
+)
+
+(deflayer sym
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    @lbc @rbc _    _    @pip @amp @ast @lbc @dqt _    _    _
+  _    _    @lsq @rsq _    _    @usc @dol @pct @not @til _    _
+  _    _    {    }    _    _    @rbc @exc @att @hst _    _
+  _    _    _              _                   _    _    _
+)
+
+(deflayer fnx
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    f9   f10  f11  f12  _    _    _
+  _    _    _    _    _    _    _    f5   f6   f7   f8   _    _
+  _    _    _    _    _    _    _    f1   f2   f3   f4   _
+  _    _    _              _                   _    _    _
+)
+
+(deflayer sjm
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  @lt3 /    @qmk @exc @til _    \    @amp @ast @lbc @dqt _    _    _
+  _    @mra @mla @mc  @ms  @mm  min  ret  bspc tab  @cln _    _
+  _    @cz  @cx  @cc  @cv  _    @rbc _    @att @hst _    _
+  _    _    _              spc                 _    _    _
+)
