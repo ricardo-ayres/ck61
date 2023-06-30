@@ -23,18 +23,11 @@
 
 (defalias
   ;; sticky keys
-  ss (one-shot 1000 sft)
-  sc (one-shot 1000 ctl)
-  sm (one-shot 1000 met)
-  sla (one-shot 1000 lalt)
-  sra (one-shot 1000 ralt)
-
-  ;; multi-mods
-  ms (tap-hold-press 100 200 @ss sft)
-  mc (tap-hold-press 100 200 @sc ctl)
-  mm (tap-hold-press 100 200 @sm met)
-  mla (tap-hold-press 100 200 @sla lalt)
-  mra (tap-hold-press 100 200 @sra ralt)
+  ss (one-shot-release 1000 sft)
+  sc (one-shot-release 1000 ctl)
+  sm (one-shot-release 1000 met)
+  sla (one-shot-release 1000 lalt)
+  sra (one-shot-release 1000 ralt)
 
   ;; layer manipulation
   rst (layer-switch default)
@@ -45,11 +38,11 @@
   lt4 (layer-while-held fnx)
   lt5 (layer-while-held sjm)
 
-  ln1 (one-shot 1000 @lt1)
-  ln2 (one-shot 1000 @lt2)
-  ln3 (one-shot 1000 @lt3)
-  ln4 (one-shot 1000 @lt4)
-  ln5 (one-shot 1000 @lt5)
+  ln1 (one-shot-release 1000 @lt1)
+  ln2 (one-shot-release 1000 @lt2)
+  ln3 (one-shot-release 1000 @lt3)
+  ln4 (one-shot-release 1000 @lt4)
+  ln5 (one-shot-release 1000 @lt5)
 
   ;; function keys
   fn1 (tap-hold-press 100 200 esc @lt1)
@@ -135,7 +128,7 @@
 (deflayer num
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   tab  /    @ast +    min  @pct \    7    8    9    '    _    _    _
-  @lt3 @gtr @sml eql  @mm  @mps min  4    5    6    .    _    _
+  @lt3 @gtr @sml eql  @sm  @mps min  4    5    6    .    _    _
   @lt4 _    @cps @cpa @aps _    0    1    2    3    ,    _
   _    _    _              @fn4                _    _    _
 )
@@ -159,7 +152,7 @@
 (deflayer sjm
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   @lt3 /    @qmk @exc @til _    \    @amp @ast @lbc @dqt _    _    _
-  _    @mra @mla @mc  @ms  @mm  min  ret  bspc tab  @cln _    _
+  _    @sra @sla @sc  @ss  @sm  min  ret  bspc tab  @cln _    _
   _    @cz  @cx  @cc  @cv  _    @rbc _    @att @hst _    _
-  _    _    _              spc                 _    _    _
+  _    _    _              _                   _    _    _
 )
