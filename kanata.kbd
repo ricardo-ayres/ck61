@@ -38,15 +38,19 @@
   lt4 (layer-while-held fnx)
   lt5 (layer-while-held sjm)
 
-  ln1 (one-shot-release 1000 @lt1)
-  ln2 (one-shot-release 1000 @lt2)
-  ln3 (one-shot-release 1000 @lt3)
-  ln4 (one-shot-release 1000 @lt4)
-  ln5 (one-shot-release 1000 @lt5)
+  ls2 (layer-switch num)
+  ls3 (layer-switch sym)
+  ls4 (layer-switch fnx)
+
+  ln1 (one-shot 1000 @lt1)
+  ln2 (one-shot 1000 @lt2)
+  ln3 (one-shot 1000 @lt3)
+  ln4 (one-shot 1000 @lt4)
+  ln5 (one-shot 1000 @lt5)
 
   ;; function keys
   fn1 (tap-hold-press 100 200 esc @lt1)
-  fn2 (tap-hold-press 100 200 @ln2 @lt2)
+  fn2 (tap-hold-press 100 200 tab @lt2)
   fn3 (tap-hold-press 100 200 spc @lt5)
   fn4 (tap-hold-press 100 200 spc @lt3)
 
@@ -119,10 +123,10 @@
  
 (deflayer nav
   _    _    _    _    _    _    _    _    _    _    _    _    _    del
-  _    @kil @cw  @ce  @cr  @ct  home pgdn pgup end  @ad  _    _    ins
-  _    @ca  @tp  @tn  @cf  @pw  lft  down up   rght @nw  _    _
+  _    @kil @cw  @ce  @cr  @ct  home pgdn pgup end  @ad  _    _    _
+  _    @ca  @tp  @tn  @cf  @pw  lft  down up   rght @nw  _    ins
   _    @cz  @cx  @cc  @cv  _    @st  @dm  @sp  @nx  @pv  _
-  _    _    _              _                   _    _    _
+  _    _    _              @lt4                _    _    _
 )
  
 (deflayer num
@@ -130,14 +134,14 @@
   tab  /    @ast +    min  @pct \    7    8    9    '    _    _    _
   @lt3 @gtr @sml eql  @sm  @mps min  4    5    6    .    _    _
   @lt4 _    @cps @cpa @aps _    0    1    2    3    ,    _
-  _    _    _              @fn4                _    _    _
+  _    _    _              @lt3                _    _    _
 )
 
 (deflayer sym
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    @lbc @rbc _    _    @pip @amp @ast @lbc @dqt _    _    _
-  _    _    @lsq @rsq _    _    @usc @dol @pct @not @til _    _
-  _    _    {    }    _    _    @rbc @exc @att @hst _    _
+  _    _    {    }    _    _    @usc @dol @pct @not @til _    _
+  _    _    @lsq @rsq _    _    @rbc @exc @att @hst _    _
   _    _    _              _                   _    _    _
 )
 
@@ -152,7 +156,7 @@
 (deflayer sjm
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   @lt3 /    @qmk @exc @til _    \    @amp @ast @lbc @dqt _    _    _
-  _    @sra @sla @sc  @ss  @sm  min  ret  bspc tab  @cln _    _
+  @lt4 @sra @sla @sc  @ss  @sm  min  ret  bspc tab  @cln _    _
   _    @cz  @cx  @cc  @cv  _    @rbc _    @att @hst _    _
   _    _    _              _                   _    _    _
 )
