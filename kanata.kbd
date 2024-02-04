@@ -41,6 +41,7 @@
   ls2 (layer-switch num)
   ls3 (layer-switch sym)
   ls4 (layer-switch fnx)
+  lsN (layer-switch nomods)
 
   ln1 (one-shot 1000 @lt1)
   ln2 (one-shot 1000 @lt2)
@@ -118,7 +119,7 @@
   @fn2 _    _    _    _    _    _    _    _    _    _    _    _    _
   @fn1 _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              @fn3                _   _    _
+  _    _    _              @fn3                _    @lsN _
 )
  
 (deflayer nav
@@ -159,4 +160,12 @@
   @lt4 @sra @sla @sc  @ss  @sm  min  ret  bspc tab  @cln _    _
   _    @cz  @cx  @cc  @cv  _    @rbc _    @att @hst _    _
   _    _    _              _                   _    _    _
+)
+
+(deflayer nomods
+  grv  _    _    _    _    _    _    _    _    _    _    _    _    _
+  tab  _    _    _    _    _    _    _    _    _    _    _    _    _
+  esc  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              spc                 _    @rst _
 )
